@@ -1,0 +1,88 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ListViewDemo.MainPage"
+             xmlns:sync="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView" 
+             xmlns:local="clr-namespace:ListViewDemo"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:VisibilityConverter x:Key="visibilityConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Margin="50,10,50,10" Text="Change Item Source" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding ChangeItemsSource}"/>
+            <Label Margin="50,300,50,100" FontSize="Large"  IsVisible="{Binding IsVisible}" Text="NO ITEMS :(" HorizontalOptions="Center" VerticalOptions="End"/>
+            <sync:SfListView x:Name="listView" ItemsSource="{Binding ContactsInfo}"  ItemSize="70" IsScrollingEnabled="True" SelectionMode="SingleDeselect"
+                             ItemSpacing="6,3,6,3"
+                             IsVisible="{Binding IsVisible,Converter={StaticResource visibilityConverter}}">
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grid" RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
+                            <Grid RowSpacing="0" Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0"  Source="{Binding ContactImage}"
+                           VerticalOptions="Start" Margin="0,13,0,0"
+                           HorizontalOptions="Center"
+                           HeightRequest="50" WidthRequest="50"/>
+
+                                <Grid Grid.Row="0" Grid.Column="1"
+                          RowSpacing="2"
+                          Padding="10,0,0,0"
+                          VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label LineBreakMode="NoWrap" Grid.Row="0"                                      
+                                                   TextColor="DimGray"
+                                                   Text="{Binding ContactName}"
+                                                   FontFamily="Roboto-Medium"
+                                                   VerticalOptions="Start" Margin="0,12,0,0"
+                                                   VerticalTextAlignment="End"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16, UWP=16}" />
+                                    <Label Grid.Row="1"
+                                                   Grid.Column="0"
+                                                   TextColor="Gray"
+                                                   FontFamily="Roboto-Regular"
+                                                   LineBreakMode="NoWrap"
+                                                   VerticalOptions="Start"
+                                                   VerticalTextAlignment="Start"
+                                                   Text="{Binding ContactNumber}"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14, UWP=14}" />
+                                </Grid>
+                                <Grid Grid.Row="0"
+                          Grid.Column="2"
+                          RowSpacing="0"
+                          HorizontalOptions="End" VerticalOptions="Start"
+                                              Padding="0,12,20,0">
+                                    <Label LineBreakMode="NoWrap" WidthRequest="60"
+                                                   TextColor="Gray"
+                                                   FontFamily="Roboto-Regular"
+                                                   VerticalOptions="Start"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   HorizontalTextAlignment="End"
+                                                   Text="{Binding ContactType}"
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12, UWP=14}" />
+                                </Grid>
+                            </Grid>
+                            <BoxView Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+            </sync:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
