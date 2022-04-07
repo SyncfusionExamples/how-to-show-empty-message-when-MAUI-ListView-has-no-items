@@ -87,7 +87,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Syncfusion.Maui.ListView" Version="19.4.55-preview" />
+	  <PackageReference Include="Syncfusion.Maui.ListView" Version="20.1.47-preview" />
 	</ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
