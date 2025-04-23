@@ -52,7 +52,7 @@
                                                    FontFamily="Roboto-Medium"
                                                    VerticalOptions="Start" Margin="0,12,0,0"
                                                    VerticalTextAlignment="End"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16, UWP=16}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=16, Tablet=18}, iOS=16, WinUI=16}" />
                                     <Label Grid.Row="1"
                                                    Grid.Column="0"
                                                    TextColor="Gray"
@@ -61,7 +61,7 @@
                                                    VerticalOptions="Start"
                                                    VerticalTextAlignment="Start"
                                                    Text="{Binding ContactNumber}"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14, UWP=14}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=14, Tablet=14}, iOS=14, WinUI=14}" />
                                 </Grid>
                                 <Grid Grid.Row="0"
                           Grid.Column="2"
@@ -75,7 +75,7 @@
                                                    HorizontalOptions="EndAndExpand"
                                                    HorizontalTextAlignment="End"
                                                    Text="{Binding ContactType}"
-                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12, UWP=14}" />
+                                                   FontSize="{OnPlatform Android={OnIdiom Phone=12, Tablet=12}, iOS=12, WinUI=14}" />
                                 </Grid>
                             </Grid>
                             <BoxView Grid.Row="1" BackgroundColor="#E4E4E4" HeightRequest="1"/>
